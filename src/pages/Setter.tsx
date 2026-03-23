@@ -352,7 +352,7 @@ const SetterCard = ({ setter, isExpanded, onToggle, onDelete, onSave, registerSa
   const theme = getTheme(setter.colorId);
   const [s, setS] = useState(setter.settings);
   const [tab, setTab] = useState<'automations' | 'prompt'>('automations');
-  const [saved, setSaved] = useState(false);
+  const [_saved, setSaved] = useState(false);
   const [copied, setCopied] = useState(false);
   const [kwi, setKwi] = useState('');
   const [showTest, setShowTest] = useState(false);
@@ -372,8 +372,6 @@ const SetterCard = ({ setter, isExpanded, onToggle, onDelete, onSave, registerSa
   useEffect(() => {
     if (isExpanded) registerSave(doSave);
   }, [isExpanded, s]);
-
-  const inp = iStyle();
 
   return (
     <div className="overflow-hidden transition-all"
