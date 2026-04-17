@@ -220,3 +220,107 @@ body {
 /* ── Recharts ── */
 .recharts-tooltip-wrapper { outline: none !important; }
 .recharts-cartesian-axis-tick text { font-family: 'Inter', sans-serif; }
+
+/* ════════════════════════════════════════════════
+   LIGHT THEME
+   ════════════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg:        #eef0fb;
+  --surface:   #f4f5ff;
+  --card:      #ffffff;
+  --card2:     #f0f2ff;
+  --border:    rgba(99,102,241,0.2);
+  --border2:   rgba(99,102,241,0.12);
+  --text:      #1a1d3a;
+  --muted:     rgba(30,32,80,0.5);
+  --dim:       rgba(30,32,80,0.28);
+  --blue-dim:  rgba(59,130,246,0.08);
+  --ind-dim:   rgba(99,102,241,0.07);
+}
+
+[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Cards */
+[data-theme="light"] .card {
+  background:
+    #ffffff padding-box,
+    linear-gradient(135deg,
+      rgba(99,102,241,0.35) 0%,
+      rgba(59,130,246,0.22) 30%,
+      rgba(139,92,246,0.28) 65%,
+      rgba(59,130,246,0.32) 100%
+    ) border-box;
+  box-shadow: 0 2px 20px rgba(99,102,241,0.07), 0 1px 4px rgba(0,0,0,0.04);
+}
+
+[data-theme="light"] .card-stat {
+  background:
+    linear-gradient(160deg, #fafbff 0%, #ffffff 55%, #f7f8ff 100%) padding-box,
+    linear-gradient(135deg,
+      rgba(99,102,241,0.4) 0%,
+      rgba(59,130,246,0.25) 50%,
+      rgba(139,92,246,0.3) 100%
+    ) border-box;
+  box-shadow: 0 2px 16px rgba(99,102,241,0.08);
+}
+
+[data-theme="light"] .card2 {
+  background: #f0f2ff;
+  border-color: rgba(99,102,241,0.14);
+}
+
+/* Inputs */
+[data-theme="light"] .input-neo {
+  background: #f8f9ff;
+  border-color: rgba(99,102,241,0.2);
+  box-shadow: inset 0 1px 4px rgba(99,102,241,0.06), 0 1px 0 rgba(255,255,255,0.9);
+}
+[data-theme="light"] .input-neo:focus {
+  border-color: rgba(59,130,246,0.5);
+  box-shadow: inset 0 1px 4px rgba(99,102,241,0.06), 0 0 0 3px rgba(59,130,246,0.1);
+}
+[data-theme="light"] .input-neo::placeholder { color: rgba(30,32,80,0.35); }
+
+[data-theme="light"] .input-clean {
+  background: rgba(99,102,241,0.05);
+  border-color: rgba(99,102,241,0.18);
+  color: var(--text);
+}
+[data-theme="light"] .input-clean::placeholder { color: rgba(30,32,80,0.35); }
+
+/* Ghost button */
+[data-theme="light"] .btn-ghost {
+  background: rgba(99,102,241,0.06);
+  border-color: rgba(99,102,241,0.2);
+  color: var(--text);
+}
+[data-theme="light"] .btn-ghost:hover {
+  background: rgba(99,102,241,0.1);
+  border-color: rgba(99,102,241,0.35);
+}
+
+/* Iri border */
+[data-theme="light"] .iri-border {
+  background:
+    #ffffff padding-box,
+    linear-gradient(135deg, #22d3ee, #6366f1, #34d399, #3b82f6) border-box;
+}
+
+/* Scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(99,102,241,0.15);
+}
+
+/* Sidebar nav hover */
+[data-theme="light"] .group:hover { background: rgba(99,102,241,0.07) !important; }
+
+/* Table row hover — picked up automatically via rgba(99,102,241,0.05) inline which is fine */
+
+/* PeriodSelector buttons in light mode */
+[data-theme="light"] button[style*="rgba(99,102,241,0.07)"] {
+  background: rgba(99,102,241,0.07) !important;
+}
+

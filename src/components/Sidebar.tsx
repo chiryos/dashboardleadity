@@ -57,10 +57,10 @@ export default function Sidebar() {
                 <span
                   className="absolute left-14 whitespace-nowrap text-xs font-medium px-2.5 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50"
                   style={{
-                    background: '#0b0d1f',
+                    background: 'var(--card)',
                     border: '1px solid rgba(99,102,241,0.25)',
                     color: 'var(--text)',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.18)',
                   }}
                 >
                   {label}

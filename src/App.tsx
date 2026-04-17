@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { PeriodProvider } from './context/PeriodContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Metrics from './pages/Metrics';
@@ -11,6 +12,7 @@ import Login from './pages/Login';
 
 export default function App() {
   return (
+    <ThemeProvider>
     <PeriodProvider>
     <BrowserRouter>
       <Routes>
@@ -26,5 +28,6 @@ export default function App() {
       </Routes>
     </BrowserRouter>
     </PeriodProvider>
+    </ThemeProvider>
   );
 }
