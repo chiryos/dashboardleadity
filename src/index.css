@@ -38,9 +38,12 @@ body {
 ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.2); border-radius: 4px; }
 
 /* ── Iridescent border card (default — matches image 1) ── */
+:root { --card-fill: linear-gradient(160deg, #0d1128 0%, #0b0d1f 55%, #090b1d 100%); }
+[data-theme="light"] { --card-fill: #ffffff; }
+
 .card {
   background:
-    linear-gradient(160deg, #0d1128 0%, #0b0d1f 55%, #090b1d 100%) padding-box,
+    var(--card-fill) padding-box,
     linear-gradient(135deg,
       rgba(99,102,241,0.35) 0%,
       rgba(59,130,246,0.22) 30%,
@@ -75,8 +78,11 @@ body {
 }
 
 /* ── Stat card with top blue glow ── */
+:root { --card-stat-fill: linear-gradient(160deg, #0f1330 0%, #0c0f24 55%, #090b1d 100%); }
+[data-theme="light"] { --card-stat-fill: linear-gradient(160deg, #fafbff 0%, #ffffff 55%, #f7f8ff 100%); }
+
 .card-stat {
-  background: linear-gradient(160deg, #0f1330 0%, #0c0f24 55%, #090b1d 100%) padding-box,
+  background: var(--card-stat-fill) padding-box,
     linear-gradient(135deg,
       rgba(99,102,241,0.4) 0%,
       rgba(59,130,246,0.25) 50%,
@@ -243,29 +249,9 @@ body {
   color: var(--text);
 }
 
-/* Cards */
-[data-theme="light"] .card {
-  background:
-    #ffffff padding-box,
-    linear-gradient(135deg,
-      rgba(99,102,241,0.35) 0%,
-      rgba(59,130,246,0.22) 30%,
-      rgba(139,92,246,0.28) 65%,
-      rgba(59,130,246,0.32) 100%
-    ) border-box;
-  box-shadow: 0 2px 20px rgba(99,102,241,0.07), 0 1px 4px rgba(0,0,0,0.04);
-}
-
-[data-theme="light"] .card-stat {
-  background:
-    linear-gradient(160deg, #fafbff 0%, #ffffff 55%, #f7f8ff 100%) padding-box,
-    linear-gradient(135deg,
-      rgba(99,102,241,0.4) 0%,
-      rgba(59,130,246,0.25) 50%,
-      rgba(139,92,246,0.3) 100%
-    ) border-box;
-  box-shadow: 0 2px 16px rgba(99,102,241,0.08);
-}
+/* Cards — box shadow upgrade in light mode */
+[data-theme="light"] .card      { box-shadow: 0 2px 20px rgba(99,102,241,0.07), 0 1px 4px rgba(0,0,0,0.04); }
+[data-theme="light"] .card-stat { box-shadow: 0 2px 16px rgba(99,102,241,0.08); }
 
 [data-theme="light"] .card2 {
   background: #f0f2ff;
@@ -319,8 +305,27 @@ body {
 
 /* Table row hover — picked up automatically via rgba(99,102,241,0.05) inline which is fine */
 
-/* PeriodSelector buttons in light mode */
-[data-theme="light"] button[style*="rgba(99,102,241,0.07)"] {
-  background: rgba(99,102,241,0.07) !important;
+/* ── Text inside cards: override hardcoded text-white ── */
+[data-theme="light"] .card .text-white,
+[data-theme="light"] .card-stat .text-white,
+[data-theme="light"] .card-navy .text-white {
+  color: var(--text) !important;
 }
+
+/* ── Select dropdowns ── */
+[data-theme="light"] select {
+  background: rgba(99,102,241,0.06) !important;
+  color: var(--text) !important;
+  border-color: rgba(99,102,241,0.2) !important;
+}
+[data-theme="light"] select option {
+  background: #fff;
+  color: var(--text);
+}
+
+/* ── Sidebar active icon stays indigo ── */
+[data-theme="light"] aside { box-shadow: 2px 0 16px rgba(99,102,241,0.06); }
+
+/* ── Recharts axis ticks ── */
+[data-theme="light"] .recharts-cartesian-axis-tick text { fill: rgba(30,32,80,0.45) !important; }
 

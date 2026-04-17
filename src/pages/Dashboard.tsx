@@ -50,13 +50,14 @@ const quickActions = [
 ];
 
 const ChartTip = ({ active, payload, label }: any) => {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: '#0b0d1f', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 10, padding: '8px 12px', fontSize: 12, boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}>
+    <div style={{ background: isLight ? '#fff' : '#0b0d1f', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 10, padding: '8px 12px', fontSize: 12, boxShadow: isLight ? '0 8px 32px rgba(99,102,241,0.12)' : '0 8px 32px rgba(0,0,0,0.6)' }}>
       <p style={{ color: 'var(--muted)', marginBottom: 4 }}>{label}</p>
       {payload.map((p: any) => (
         <p key={p.dataKey} style={{ color: p.color || 'var(--accent)', fontWeight: 600 }}>
-          {p.name}: <span style={{ color: '#fff' }}>{p.value}</span>
+          {p.name}: <span style={{ color: isLight ? '#1a1d3a' : '#fff' }}>{p.value}</span>
         </p>
       ))}
     </div>
